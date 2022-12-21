@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+num = input()
+words = [""] * int(num)
+hashmap = {}
+for i in range(int(num)):
+    words[i] = input()
+    
+for word in words:
+    if word in hashmap:
+        hashmap[word] += 1
+    else:
+        hashmap[word] = 1
+print(len(hashmap))
+for items in hashmap:
+    print(hashmap[items],end = " ")
