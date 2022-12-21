@@ -1,0 +1,28 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import Counter
+nm = input().split(" ")
+nums =  input().split(" ")
+a = input().split(" ")
+b = input().split(" ")
+
+a.sort()
+b.sort()
+j,k = 0,min(len(a),len(b))
+ans = 0
+c = Counter(nums) 
+while j < k:
+    if a[j] in c:
+        ans += c[a[j]]
+    if b[j] in c:
+        ans -= c[b[j]]
+    
+    j += 1
+if len(a) > k:
+    for i in range(k, len(a)):
+        if a[i] in c:
+            ans += c[a[i]]
+if len(b) > k:
+    for i in range(k,len(b)):
+        if b[i] in c:
+            ans -= c[b[i]]    
+print(ans)
