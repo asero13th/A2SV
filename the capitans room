@@ -1,0 +1,9 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import  Counter
+k = int(input())
+word = input()
+words = word.split(" ")
+c = Counter(words)
+for val in c:
+    if c[val] != k:
+        print(val)
