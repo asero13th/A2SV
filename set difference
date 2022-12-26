@@ -1,0 +1,14 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = (input())
+
+
+english = list(map(int,input().split()))
+m = (input())
+french = list(map(int,input().split()))
+counter = len(english)
+
+for i in english:
+    if i in french:
+        counter -= 1
+
+print(counter)
