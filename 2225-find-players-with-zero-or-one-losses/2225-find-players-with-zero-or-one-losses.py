@@ -7,10 +7,10 @@ class Solution:
             if val[0] in winners: winners[val[0]].append(idx)
             else: winners[val[0]] =  [idx]
                 
-            if val[1] in lossers: lossers[val[1]].append(idx)
-            else: lossers[val[1]] = [idx]
+            lossers[val[1]] = lossers.get(val[1],0) + 1
+                
         tmp_winners = [key for key in winners if key not in lossers]     
-        tmp_lossers = [key for key in lossers if len(lossers[key]) == 1 ]
+        tmp_lossers = [key for key in lossers if lossers[key] == 1 ]
 
         tmp_winners.sort()
         tmp_lossers.sort()
