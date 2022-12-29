@@ -1,0 +1,17 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+A = set(map(int,input().split()))
+flag = 0
+
+n = int(input())
+
+for i in range(n):
+    B = set(map(int,input().split()))
+    
+    if not A.issuperset(B) and len(A) != len(B):
+        flag = 1
+        
+if not flag:
+    print(True)
+else:
+    print(False)
