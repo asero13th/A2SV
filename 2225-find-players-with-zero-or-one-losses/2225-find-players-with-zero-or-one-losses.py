@@ -1,17 +1,21 @@
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
-        dct=defaultdict(lambda :[0,0])
-        for p1,p2 in matches:
-            dct[p1][0]+=1
-            dct[p1][1]+=1
-            dct[p2][0]+=1
-        wonAll=[]
-        lossOne=[]
-        for i in dct:
-            if dct[i][0]==dct[i][1]:
-                wonAll.append(i)
-            elif dct[i][0]-dct[i][1]==1:
-                lossOne.append(i)
-        wonAll.sort()
-        lossOne.sort()
-        return [wonAll,lossOne]
+        winners = {}
+        lossers = {}
+        ans = [[]] * 2
+        for idx,val in enumerate(matches):
+            if val[0] in winners: winners[val[0]].append(idx)
+            else: winners[val[0]] =  [idx]
+                
+            lossers[val[1]] = lossers.get(val[1],0) + 1
+                
+        tmp_winners = [key for key in winners if key not in lossers]     
+        tmp_lossers = [key for key in lossers if lossers[key] == 1 ]
+
+        tmp_winners.sort()
+        tmp_lossers.sort()
+        
+        ans[0] = tmp_winners
+        ans[1] = tmp_lossers
+        
+        return ans
