@@ -1,9 +1,8 @@
 class Solution:
     def sumEvenAfterQueries(self, nums: List[int], queries: List[List[int]]) -> List[int]:
-        ans, evensum = [], 0
-        for num in nums:
-            if num % 2 == 0: evensum += num
-
+        ans = []
+        evensum = sum(v for v in nums if v % 2 == 0)
+        
         for val, idx in queries:
             num = nums[idx]
             if num % 2 == 0: evensum  -= num
