@@ -6,17 +6,12 @@ class Solution:
 
         for val, idx in queries:
             num = nums[idx]
-            if self.iseven(num):
-                evensum  -= num
+            if num % 2 == 0: evensum  -= num
                 
             nums[idx] += val
-            if self.iseven(nums[idx]):
-                evensum += nums[idx]
+            
+            if nums[idx] % 2 == 0: evensum += nums[idx]
+                
             ans.append(evensum)
             
         return ans
-                
-            
-    def iseven(self, num):
-        return num % 2 == 0
-            
