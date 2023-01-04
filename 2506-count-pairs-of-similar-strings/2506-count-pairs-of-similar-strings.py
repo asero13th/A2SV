@@ -4,10 +4,9 @@ class Solution:
         ans = 0
         
         for word in words:
-            c = "".join(sorted(set(list(word))))
-            # c = list(set(word))
-            # c.sort()
-            # c = "".join(c)
+            c = list(set(word))
+            c.sort()
+            c = "".join(c)
             hashmap[c] = hashmap.get(c,0) + 1
             
         for word in hashmap:
