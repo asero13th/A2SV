@@ -9,7 +9,7 @@ class Solution:
             hashmap[c] = hashmap.get(c,0) + 1
         for word in hashmap:
             num = hashmap[word]
-            ans += self.permutation(num,2) if num > 1 else 0
+            ans += self.permutation(num) if num > 1 else 0
         return ans
             
         
@@ -18,6 +18,8 @@ class Solution:
             return 1
         else:
             return num * self.factorial(num - 1)
-    def permutation(self,m,n):
-        return self.factorial(m) // ((self.factorial(m - n) * self.factorial(n)))
+    def permutation(self,m):
+        numerator = (m * (m - 1)) // 2
+        
+        return numerator
         
