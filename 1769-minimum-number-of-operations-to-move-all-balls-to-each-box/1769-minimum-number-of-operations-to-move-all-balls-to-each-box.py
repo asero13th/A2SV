@@ -1,7 +1,7 @@
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
         ans = [0] * len(boxes)
-        index = [i for i in range(len(boxes)) if int(boxes[i]) == 1]
+        index = [i for i in range(len(boxes)) if boxes[i] == '1']
 
         for idx,char in enumerate(boxes):
             sum_of_ones  = 0
