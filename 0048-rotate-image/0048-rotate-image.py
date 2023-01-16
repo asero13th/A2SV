@@ -4,12 +4,10 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
         
-        tmp = (zip(*(matrix)))
         i = 0
-        for row in tmp:
+        for row in zip(*(matrix)):
             matrix[i] = reversed(row)
             i += 1
-        print(matrix)
            
             
         
