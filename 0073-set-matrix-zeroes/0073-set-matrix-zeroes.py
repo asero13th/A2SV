@@ -14,6 +14,6 @@ class Solution:
             for j in range(len(matrix[i])):
                 if i in row or j in col:
                     matrix[i][j] = 0
-        return matrix
+
         
         
