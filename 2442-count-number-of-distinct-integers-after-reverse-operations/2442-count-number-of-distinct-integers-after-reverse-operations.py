@@ -3,6 +3,6 @@ class Solution:
         numset = set(nums)
         
         for num in nums:
-            numset.add(int("".join(reversed(str(num)))))
+            numset.add(int(str(num)[::-1]))
         return len(numset)
         
