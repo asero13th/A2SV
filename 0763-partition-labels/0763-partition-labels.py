@@ -1,25 +1,20 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        wordcount = Counter(s)
-        charset = set()
-        word = []
+        c = Counter(s)
+        hashmap = {}
         ans = []
-        for char in s:
-            wordcount[char] -= 1
+        l = 0
+        
+        for i,v in enumerate(s):
+            hashmap[v] = hashmap.get(v,c[v]) - 1
             
-            if char not in charset:
-                charset.add(char)
-            word.append(char)
+            if hashmap[v] == 0:
+                hashmap.pop(v)
                 
-            if wordcount[char] == 0:
-                charset.remove(char)
-                
-            if len(charset) == 0:
-                ans.append(len(word))
-                word = []
+            if len(hashmap)  == 0:
+                ans.append(i - l + 1)
+                l = i + 1
         return ans
                 
                 
-            
-            
         
