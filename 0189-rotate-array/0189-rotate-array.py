@@ -5,7 +5,15 @@ class Solution:
         """
         
         n = k % len(nums)
+        tmp = []
+        for i in range(len(nums) - n,len(nums)):
+            tmp.append(nums[i])
+            
+        for i in range(len(nums) - n - 1,-1,-1):
+            nums[i + n] = nums[i]
+            
         for i in range(n):
-            nums.insert(0,nums.pop())
+            nums[i] = tmp[i]
+            
         
         
