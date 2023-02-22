@@ -1,25 +1,21 @@
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
-        sc,pc = {},{}
-        if len(p) > len(s): return []
-        for i in range(len(p)):
-            sc[s[i]] = 1 + sc.get(s[i],0)
-            pc[p[i]] = 1 + pc.get(p[i],0)
+        target = Counter(p)
+        hashmap = {}
+        ans = []
+        left = 0
+    
+        for i in range(len(s)):
+            hashmap[s[i]] = hashmap.get(s[i],0) + 1
+            if hashmap == target:
+                ans.append(left)
+
+            if i - left + 1 == len(p):
+                hashmap[s[left]] -= 1
+                if hashmap[s[left]] == 0:
+                    hashmap.pop(s[left])
+                left += 1
             
-        ans  = [0] if sc == pc else []
-        l = 0
-        for r in range(len(p),len(s)):
-            sc[s[r]] = 1 + sc.get(s[r],0)
-            sc[s[l]] -= 1
-            
-            if sc[s[l]] == 0:
-                sc.pop(s[l])
-            l += 1
-            if sc == pc:
-                ans.append(l)
-        return ans
-            
-                
-                
-                
-                
+        return  ans
+    
+        
