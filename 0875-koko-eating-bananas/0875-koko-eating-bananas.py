@@ -3,7 +3,6 @@ class Solution:
         right = max(piles)
         left = 1
         
-        answer = None
         while left <= right:
             middle = (left + right)//2
             
@@ -11,9 +10,8 @@ class Solution:
             if  not result:
                 left = middle + 1
             else:
-                answer = middle
                 right = middle - 1 
-        return answer
+        return left
     
     def isValid(self,piles, k,h):
         
