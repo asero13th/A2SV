@@ -3,15 +3,17 @@ class Solution:
         right = max(piles)
         left = 1
         
+        answer = None
         while left <= right:
             middle = (left + right)//2
             
-            if  not self.isValid(piles, middle, h):
+            result = self.isValid(piles, middle, h)
+            if  not result:
                 left = middle + 1
-            elif middle != 1 and self.isValid(piles, middle, h) and self.isValid(piles, middle - 1,h):
-                right = middle - 1
-            else: return middle
-    
+            else:
+                answer = middle
+                right = middle - 1 
+        return answer
     
     def isValid(self,piles, k,h):
         
