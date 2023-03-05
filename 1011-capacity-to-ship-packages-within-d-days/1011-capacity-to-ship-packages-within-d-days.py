@@ -1,7 +1,7 @@
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         n = len(weights)
-        lru_cache(None)
+        
         
         def isValid(w):
             count = 0
