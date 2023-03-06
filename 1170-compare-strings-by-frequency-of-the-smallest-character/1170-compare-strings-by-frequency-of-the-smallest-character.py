@@ -1,10 +1,9 @@
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
-      
-           
+        
         words.sort(key=lambda x: self.f(x))
         ans = []
-        print(words)
+        
         for query in queries:
             left, right = 0 , len(words) - 1
             while left <= right:
