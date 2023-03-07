@@ -9,10 +9,7 @@ class Solution:
             if not root:
                 return []
             
-            arr = self.inorderTraversal(root.left)
-            arr.append(root.val)
-            arr += (self.inorderTraversal(root.right))
-            
+            arr = self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
             return arr
         
         
