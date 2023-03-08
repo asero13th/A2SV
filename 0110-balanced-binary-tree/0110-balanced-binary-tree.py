@@ -6,19 +6,17 @@
 #         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        return False if self.checker(root) ==  float('inf') else True
+        def helper(root):
+            if not root:
+                return 0
         
-    def checker(self,root):
-        if not root:
-            return 0
-        
-        left  = self.checker(root.left)
-        right = self.checker(root.right)
-        
-        if abs(left - right) > 1:
-            return float('inf')
-        
-        return max(left, right) + 1
-            
-        
+            left = helper(root.left) + 1
+            right = helper(root.right) + 1
+
+            if abs(left - right) > 1:
+                return float("inf")
+
+            return max(left, right)
+        return True if helper(root) != float('inf') else False
+
         
