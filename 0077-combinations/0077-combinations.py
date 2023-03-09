@@ -6,11 +6,11 @@ class Solution:
                 ans.append(arr)
                 return
             
-            for j in range(i , n + 1):
-                helper(j + 1 , arr + [j])
+            for j in range(i + 1 , n + 1):
+                helper(j , arr + [j])
                 
             
-        helper(1,[])
+        helper(0,[])
         return ans
                 
                 
