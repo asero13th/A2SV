@@ -3,11 +3,13 @@ class Solution:
         ans = []
         def helper(i, arr):
             if len(arr) == k:
-                ans.append(arr)
+                ans.append(arr.copy())
                 return
             
             for j in range(i + 1 , n + 1):
-                helper(j , arr + [j])
+                arr.append(j)
+                helper(j , arr)
+                arr.pop()
                 
             
         helper(0,[])
