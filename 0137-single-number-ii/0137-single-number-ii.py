@@ -1,7 +1,12 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        numsCount = Counter(nums)
-        for val in numsCount:
-            if numsCount[val] == 1:
-                return val
+        ones = 0
+        twos = 0
+        
+        for num in nums:
+            ones = (ones ^ num) & ~(twos)
+            twos = (twos ^ num) & ~(ones)
+        return ones
+        
+        
         
