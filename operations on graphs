@@ -1,0 +1,35 @@
+import sys
+input = sys.stdin.readline
+from collections import Counter
+import itertools
+from math import ceil, floor, log
+from collections  import defaultdict
+#        ---- Input Functions ----      #
+
+def inp():
+    return int(input())
+def inlt():
+    return list(map(int, input().split()))
+def insr():
+    s = input()
+    return list(s[:len(s) - 1])
+def invr():
+    return map(int, input().split())
+
+
+def solve():
+    verices = inp()
+    n = inp()
+    graph = []
+    for i in range(n + 1):
+        graph.append([])
+    for _ in range(n):
+        operation = inlt()
+        if operation[0] == 1:
+            graph[operation[1]].append(operation[2])
+            graph[operation[2]].append(operation[1])
+        elif graph[operation[1]]:
+            print(*graph[operation[1]])
+    
+if __name__ == "__main__":
+    solve()
