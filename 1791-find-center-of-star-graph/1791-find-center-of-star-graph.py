@@ -8,7 +8,7 @@ class Solution:
             return hashmap
         
         adjList = adjecencyList(edges)
-        print(adjList)
+
         for key in adjList:
             if len(adjList[key]) > 1:
                 return key
