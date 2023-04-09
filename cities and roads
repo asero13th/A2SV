@@ -1,0 +1,36 @@
+import sys
+input = sys.stdin.readline
+from collections import Counter
+import itertools
+from math import ceil, floor, log
+import math
+from collections  import defaultdict
+#        ---- Input Functions ----      #
+
+def inp():
+    return int(input())
+def inlt():
+    return list(map(int, input().split()))
+def insr():
+    s = input()
+    return list(s[:len(s) - 1])
+def invr():
+    return map(int, input().split())
+def getmatrix(n):
+    matrix = []
+    for _ in range(n):
+        matrix.append(inlt())
+    return matrix
+
+def solve():
+    n = inp()
+    matrix = getmatrix(n)
+    ans = set()
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            if matrix[i][j] == 1:
+                ans.add(i*j)
+    return len(ans)
+if __name__ == "__main__":
+    print(solve())
+    
