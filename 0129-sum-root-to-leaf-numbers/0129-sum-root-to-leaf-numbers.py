@@ -1,9 +1,3 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         ans = []
@@ -24,6 +18,7 @@ class Solution:
             return
         pathes(root,[])
         answer = 0
+        
         for arr in ans:
             answer += int("".join(arr))
         return answer
