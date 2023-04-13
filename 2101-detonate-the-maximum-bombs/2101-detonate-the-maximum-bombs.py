@@ -35,6 +35,8 @@ class Solution:
             visited = set([i])
             dfs(i)
             ans = max(ans,len(visited))
+            if len(visited) == n:
+                break
            
         return ans
         
