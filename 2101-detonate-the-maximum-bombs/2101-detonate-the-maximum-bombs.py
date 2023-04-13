@@ -38,39 +38,9 @@ class Solution:
            
         return ans
         
-#         def adjList(bombs):
-#             hashmap = defaultdict(list)
-#             for i, arr in enumerate(bombs):
-                
-#                 x, y, r = arr[0], arr[1], arr[2]
-                
-#                 for j, li in enumerate(bombs):
-#                     k,l,m  = li[0], li[1], li[2]
-#                     if  math.sqrt((x - k)**2 + (y - l)**2) <= r and  i != j:
-#                         hashmap[j].append(i)
-#                         hashmap[i].append(j)
-#             return hashmap
-        
-#         adj = adjList(bombs)
-#         visited = set()
-#         def dfs(vertex, length):
-            
-            
-#             visited.add(vertex)
-#             for neigh in adj:
-#                 if neigh not in visited:
-#                     dfs(neigh, length)
-#                     length += 1
-                    
-#             return length
-                    
-            
-#         print(adj)
-#         ans = 1
-#         for val in adj:
-#             if val not in visited:
-#                 ans = max(ans, dfs(val, 0))            
-#         return ans
+
+
+
                     
                     
             
