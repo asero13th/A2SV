@@ -6,17 +6,31 @@
 #         self.right = right
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        hashmap = defaultdict(list)
-        
-        def track(root, level):
-            if not root:
+        ans = []
+        def bfs(node):
+            if not node:
                 return 
+            queue = deque([node])
             
-            hashmap[level].append(root.val)
-            track(root.left,level + 1)
-            track(root.right, level + 1)
-            
-        track(root, 0)
-        return hashmap.values()
+            while queue:
+                tmp = []
+                for node in queue:
+                    tmp.append(node.val)
+                ans.append(tmp.copy())
+                
+                for i in range(len(queue)):
+                    node = queue.popleft()
+                    
+                    if node.left:
+                        queue.append(node.left)
+                    if node.right:
+                        queue.append(node.right)
+                
+        bfs(root)
+        return ans
+        
+                    
+                    
+                
         
         
