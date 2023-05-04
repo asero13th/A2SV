@@ -7,18 +7,14 @@
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
         ans = []
-        graph = defaultdict()
+
         def bfs(node):
-            
         
             queue = deque([node])
            
-            
             while queue:
                 total = 0
                 len_queue = len(queue)
-                
-                
                 
                 for i in range(len(queue)):
                     node = queue.popleft()
@@ -35,9 +31,4 @@ class Solution:
                 ans.append((average))
                
         bfs(root)
-        return ans
-                
-        
-        
-        
-        
+        return ans        
