@@ -1,6 +1,6 @@
 class Solution:
     def racecar(self, target: int) -> int:
-        q = collections.deque([(0, 0, 1)]) # moves, position, vel
+        q = deque([(0, 0, 1)]) 
         visited = set()
 
         while q:
