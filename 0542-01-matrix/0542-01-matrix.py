@@ -6,7 +6,7 @@ class Solution:
             ans = [[0 for i in range(len(mat[0]))] for j in range(len(mat))]
             queue = deque()
             visited = set()
-            print(ans)
+      
             for i, row in enumerate(mat):
                 for j, num in enumerate(row):
                     if num  == 0:
