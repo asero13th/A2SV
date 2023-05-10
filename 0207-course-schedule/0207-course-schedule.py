@@ -1,27 +1,34 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        degree = defaultdict(int)
         graph = defaultdict(list)
-        
+        color = defaultdict(int)
         
         for course, pre in prerequisites:
-            graph[pre].append(course)
-            degree[course] += 1
+            graph[course].append(pre)
+        ans = []   
+        def dfs(node):
+            if color[node] == 1:
+                return False
             
-        queue = deque()
-        for c in range(numCourses):
-            if degree[c] == 0:
-                queue.append(c)
-        ans = []       
-        while queue:
+            if color[node] == 2:
+                return True
             
-            node = queue.popleft()
-            ans.append(node)
-            for neigh in graph[node]:
-                degree[neigh] -= 1
+            color[node] = 1
+            for val in graph[node]:
                 
-                if degree[neigh] == 0:
-                    queue.append(neigh)
-                    
-        return len(ans) == numCourses
+                if not dfs(val):
+                    return False
+            
+            color[node] = 2
+            return True
+        for i in range(numCourses):
+            if not dfs(i):
+                return False
+        return True
+                
+            
+
+            
+        
+        
         
