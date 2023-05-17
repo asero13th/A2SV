@@ -21,11 +21,11 @@ class Solution:
                 if edge1 != edge2:
                     if rank[edge1] > rank[edge2]:
                         graph[edge2] = graph[edge1]
-                        rank[edge2] += rank[edge1]
+                        rank[edge1] += rank[edge2]
                         
                     else:
                         graph[edge1] = graph[edge2]
-                        rank[edge1] += rank[edge2]
+                        rank[edge2] += rank[edge1]
             return unioNfind(graph[source]) == unioNfind(graph[destination])
         return solve(source, destination)
      
