@@ -25,7 +25,7 @@ class Solution:
                         
                     else:
                         graph[edge1] = graph[edge2]
-                        rank[edge1] += graph[edge1]
+                        rank[edge1] += rank[edge2]
             return unioNfind(graph[source]) == unioNfind(graph[destination])
         return solve(source, destination)
      
