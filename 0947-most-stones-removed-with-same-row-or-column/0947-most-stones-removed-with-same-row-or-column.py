@@ -22,7 +22,7 @@ class Solution:
             else:
                 parent[parent_x] = parent_y
                 
-   
+            return
         
         def is_connected(stone1, stone2):
             if stone1[0] == stone2[0]:
