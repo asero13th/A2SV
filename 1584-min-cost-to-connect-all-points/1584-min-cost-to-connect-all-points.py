@@ -46,8 +46,7 @@ class Solution(object):
         
         cost = 0
         edges_count = 0
-        
-        # Find mst using Kruskal's algo
+   
         for edge, weight in sorted_edges_list:
             u, v = edge
             
