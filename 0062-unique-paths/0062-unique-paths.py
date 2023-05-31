@@ -1,23 +1,23 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        memo = {}
+        memo = [[0 for i in range(n)] for _ in range(m)]
+        memo[ -1][ - 1] = 1
         
-        def dp(row, col):
-            if row > m - 1 or col > n - 1:
-                return 0
-            
-            if row  ==  m - 1 and col == n - 1:
-                return 1
-            
-            if (row, col) not in memo:
-                down = dp(row + 1, col)
-                right = dp(row, col + 1)
-       
-                memo[(row, col)] = (down + right)
-                return down + right
-            return memo[(row, col)]
         
-        return(dp(0,0))
+        for i in range( m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                if i > 0:
+                    memo[i - 1][j] += memo[i][j]
+                if j > 0:
+                    memo[i][j - 1] += memo[i][j]
+        return memo[0][0]
+                
+        
+        
+        
+        
+        
+        
             
                 
                 
