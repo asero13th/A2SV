@@ -13,9 +13,3 @@ class Solution:
             
             return memo[n]
         return dp(n)
-        
-        
-        var1 = self.fib(n - 1)
-        var2 = self.fib(n - 2)
-        
-        return var1 + var2
