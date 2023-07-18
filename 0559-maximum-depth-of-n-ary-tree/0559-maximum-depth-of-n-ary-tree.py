@@ -8,6 +8,9 @@ class Node:
 
 class Solution:
     def maxDepth(self, root):
+                
+        
+        
         
         if root is None:
             return 0
@@ -19,3 +22,21 @@ class Solution:
             maxDepthOfChildren = max(maxDepthOfChildren, depth)
             
         return maxDepthOfChildren + 1
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
