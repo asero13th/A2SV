@@ -9,9 +9,6 @@ class Node:
 class Solution:
     def maxDepth(self, root):
                 
-        
-        
-        
         if root is None:
             return 0
         
