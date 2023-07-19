@@ -19,18 +19,19 @@ class Solution:
             return [graph, values]
         graph, imp = adjList(employees)
         visited = set()
+        ans = 0
         def dfs(index):
-            
+            nonlocal ans
             visited.add(index)
+            ans += imp[index]
             for neigh in graph[index]:
                 if neigh not in visited:
                     dfs(neigh)
-        dfs(id)
-        ans = 0
-        for num in visited:
-            ans += imp[num]
+            return ans
+        return dfs(id)
+   
+        
 
-        return ans
 
         
         
