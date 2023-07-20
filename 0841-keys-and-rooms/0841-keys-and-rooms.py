@@ -14,7 +14,7 @@ class Solution:
                         visited.add(node[i])
                         queue.append(rooms[node[i]])
         
-            print(len(rooms), len(visited))
+           
             return True if len(visited) == len(rooms) else False
         return bfs(rooms[0])
                         
