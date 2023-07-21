@@ -1,9 +1,5 @@
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
-        
-        
-        
-                
         def bfs(node):
             if grid[0][0] != 0:
                 return -1
@@ -30,13 +26,43 @@ class Solution:
                             queue.append((x + i, y + j, z + 1))
                             visited.add((x + i ,y + j))
                            
-                            
-                        
-                       
-                # print(visited, queue)
+                
                 
             return -1
         return bfs((0, 0,1))
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
             
                     
                     
