@@ -5,7 +5,7 @@ class Solution:
         
         heap = []
         for stone in stones:
-            heapq.heappush(heap, -stone)
+            heapq.heappush(heap, -1 * stone)
     
   
         
