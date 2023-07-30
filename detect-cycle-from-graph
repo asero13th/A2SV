@@ -1,0 +1,21 @@
+visited = set()
+		result = 0
+		def dfs(ind,last = -1):
+		    nonlocal result
+		    if result == 1: return
+		    visited.add(ind)
+		    for itr in adj[ind]:
+		        if itr == last:
+		            continue
+		        if itr in visited:
+		            result = 1
+		            return 
+		        dfs(itr,ind)
+		for i in range(V):
+		    if i not in visited:
+		        dfs(i)
+    		    if result == 1:
+    		        return 1
+		return 0
+		        
+
