@@ -1,38 +1,36 @@
 class Solution:
     def loudAndRich(self, richer: List[List[int]], quiet: List[int]) -> List[int]:
         
-        def adjList():
-            graph = defaultdict(list)
-            degree = defaultdict(int)
-            for a, b in richer:
-                graph[b].append(a)
-                degree[a] = quiet[a]
-            return [graph, degree]
-        graph, degree = adjList()
+        n = len(quiet)
+        graph = defaultdict(list)
+        indegree = [0] * n
+        queue = deque()
         
-        def dfs(vertex):
-            nonlocal minimum
-            if quiet[minimum] >= quiet[vertex]:
-                    minimum = vertex
+        ans = [i for i in range(n)]
+        
+        for u, v in richer:
+            graph[u].append(v)
+            indegree[v] += 1
+            
+        for i in range(n):
+            if indegree[i] == 0:
+                queue.append(i)
+        
+        while queue:
+            u = queue.popleft()
+            mini = quiet[u]
+            
+            
+            for v in graph[u]:
+                if mini < quiet[v]:
                     
-            for neigh in graph[vertex]:
+                    quiet[v] = mini
+                    ans[v] = ans[u]
+                indegree[v] -= 1
                 
-                    
-                if neigh not in visited:
-                    visited.add(neigh)
-                    dfs(neigh)
-            return minimum
-        ans = []
-        
-        for i in range(len(quiet)):
-            minimum = i
-            visited = set()
-            mini = dfs(i)
-            ans.append(mini)
+                if indegree[v] == 0:
+                    queue.append(v)
         return ans
             
-        
-        
-                
-                
-        
+            
+            
