@@ -1,43 +1,26 @@
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
-        
-        def adjList():
-            graph = defaultdict(list)
-            degree = defaultdict(int)
-            maximum = 0
-            for u, v in adjacentPairs:
-                graph[u].append(v)
-                graph[v].append(u)
-                degree[u] += 1
-                degree[v] += 1
-            
-            return [degree, graph]
-        degree, graph = adjList()
-        ans = []
-        
-        queue = deque()
-        tmp =  []
-        for edge in degree:
-            if degree[edge] == 1:
-                tmp.append(edge)
-               
-        queue.append(tmp[0])
-        
-        while queue:
-            
-            node  = queue.popleft()
-            ans.append(node)
-            for neigh in graph[node]:
-                degree[neigh] -= 1
-                
-                if degree[neigh] == 1:
-                    queue.append(neigh)
-        ans.append(tmp[1])
-        return ans
-                
-        
-        
-        
-        
-            
-        
+        # create the map 
+        adj = collections.defaultdict(list)
+        for a, b in adjacentPairs:
+            adj[a].append(b)
+            adj[b].append(a)
+
+		# find the start num
+        start = adjacentPairs[0][0]
+        for k, v in adj.items():
+            if len(v) ==1:
+                start = k
+                break
+				
+		# dfs to connect the graph
+        nums=[]
+        seen = set()
+        def dfs(num):
+            seen.add(num)
+            for next_num in adj[num]:
+                if next_num in seen: continue
+                dfs(next_num)
+            nums.append(num) 
+        dfs(start)
+        return nums
