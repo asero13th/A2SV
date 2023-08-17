@@ -1,12 +1,11 @@
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
         store = defaultdict(int)
-        def dp(i, j):
-            if i == len(triangle) - 1:
-                return triangle[i][j]
+        def dp(l,m):
             
-            if (i,j) not in store:
-                store[(i, j)] = min(dp(i + 1, j) , dp(i+ 1, j + 1)) + triangle[i][j]
+            for i in range(len(triangle) - 1,-1,-1):
+                for j in range(len(triangle[i])):
+                    store[(i, j)] = min(store[(i + 1, j)] , store[(i+ 1, j + 1)]) + triangle[i][j]
                 
-            return store[(i, j)]
+            return store[(l,m)]
         return dp(0,0)
