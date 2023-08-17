@@ -3,17 +3,14 @@ class Solution:
         
         
         store = defaultdict(int)
-        def dp(i):
-           
-            
-            if i >= len(questions):
-                return 0
-            
-            nextt = questions[i][1]
-            val = questions[i][0]
-            
-            if i not in store:
-                store[i] = max(val + dp(i + (nextt + 1)), dp(i + 1))
-            
-            return store[i]
+        def dp(j):
+            prev = 0
+            for i in range(len(questions) - 1, -1, -1):
+                val = questions[i][0]
+                nextt = questions[i][1]
+                store[i] = max(val + store[i  + 1 + nextt], store[i + 1])
+                
+                
+                
+            return store[j]
         return dp(0)
