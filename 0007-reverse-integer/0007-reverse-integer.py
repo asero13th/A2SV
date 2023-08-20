@@ -1,7 +1,6 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        
-        print(2**31 - 1)
+
         n = abs(x)
         num = 0
         power = len(str(n)) - 1
@@ -11,8 +10,10 @@ class Solution:
             num = num + (val * (10**power))
             n = n // 10
             power -= 1
+            
         if num < -2147483647 or num > 2147483647:
             return 0
+        
         return num if x >= 0 else -num
             
             
