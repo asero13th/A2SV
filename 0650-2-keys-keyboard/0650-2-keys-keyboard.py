@@ -16,7 +16,4 @@ class Solution:
                 return x
             
             return x + solve(n//x)
-        return solve(n)
-    
-        
-        
+        return solve(n  )    
