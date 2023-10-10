@@ -21,11 +21,11 @@ class Solution:
             if left and right:
                 return node
             
-            if left:
-                return left
+            if right:
+                return right
             
             else:
-                return right
+                return left
             
             
         return findRoot(root, p, q)
