@@ -14,7 +14,6 @@ class Solution:
             if status:
                 sum = max(dp(False, idx + 1) - prices[idx], dp(True, idx + 1))
                 
-                
             else:
                 sum = max(dp(False, idx + 1), dp(True, idx + 1) + prices[idx] - fee)
                 
