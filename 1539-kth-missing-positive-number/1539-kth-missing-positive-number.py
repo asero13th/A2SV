@@ -2,6 +2,8 @@ class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
         counter = 0
         def binarySearch(k=-1):
+            
+        
             left = 0
             right = len(arr) - 1
             while left <= right:
@@ -17,6 +19,6 @@ class Solution:
         while k:
             counter += 1
             index = binarySearch(counter)
-            if not (index+ 1):
+            if  (index+ 1) == 0:
                 k -= 1
         return counter
