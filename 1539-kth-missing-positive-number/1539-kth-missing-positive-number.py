@@ -1,10 +1,22 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
-        arr_set = set(arr)
-        for i in range(1, 10**4):
-            if i not in arr_set:
+        counter = 0
+        def binarySearch(k=-1):
+            left = 0
+            right = len(arr) - 1
+            while left <= right:
+                mid = (left+right) // 2
+                if arr[mid] == k:
+                    return left+mid
+                elif arr[mid] < k:
+                    left = mid+1
+                else:
+                    right = mid - 1
+            return -1
+
+        while k:
+            counter += 1
+            index = binarySearch(counter)
+            if not (index+ 1):
                 k -= 1
-            if k == 0:
-                return i
-        return i
-        
+        return counter
