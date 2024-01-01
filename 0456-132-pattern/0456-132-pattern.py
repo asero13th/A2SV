@@ -7,16 +7,11 @@ class Solution:
             else:
                 minstack.append(min(minstack[-1],num))
         stack = []
+        print(minstack)
         for i in range(len(nums) - 1, -1, -1):
             
-                
             while stack  and stack[-1] < nums[i]:
                 if minstack[i] < stack[-1]:
                     return True
                 stack.pop()
             stack.append(nums[i])
-        
-        
-        
-        
-        
