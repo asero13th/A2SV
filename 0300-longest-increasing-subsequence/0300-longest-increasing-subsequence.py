@@ -1,6 +1,6 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        hashmap = defaultdict(int)
+
         dp = [1] * len(nums)
 
         for i in range(len(nums)):
